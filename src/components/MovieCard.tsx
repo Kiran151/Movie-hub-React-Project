@@ -16,7 +16,7 @@ const MovieCard = ({ movie }: Props) => {
         <Card borderRadius={10} overflow={'hidden'}>
             <Image src={'https://image.tmdb.org/t/p/original' + movie.poster_path} />
             <CardBody>
-                <Heading fontSize={'2xl'}>{movie.original_title}</Heading>
+                <Heading fontSize={'16px'}>{movie.original_title}</Heading>
             </CardBody>
         </Card>
     )

@@ -19,7 +19,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
 
     return (
         <List>
-            {genres.map(genre => <ListItem key={genre.id} paddingY={4}>
+            {genres.map(genre => <ListItem key={genre.id} paddingY={3}>
                 <HStack>
                     <SkeletonCircle borderRadius={0} />
                     <Button onClick={() => onSelectGenre(genre)

@@ -1,7 +1,7 @@
 import { Card, CardBody, Skeleton, SkeletonText } from '@chakra-ui/react'
 import React from 'react'
 
-const GameCardSkeleton = () => {
+const MovieCardSkeleton = () => {
     return (
         <Card borderRadius={10} overflow={'hidden'}>
             <Skeleton borderRadius={10} height={300} width={300} />
@@ -12,4 +12,4 @@ const GameCardSkeleton = () => {
     )
 }
 
-export default GameCardSkeleton
+export default MovieCardSkeleton

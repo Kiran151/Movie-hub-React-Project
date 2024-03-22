@@ -1,5 +1,5 @@
 import './App.css'
-import { Grid, GridItem, HStack, Show } from '@chakra-ui/react'
+import { Flex, Grid, GridItem, HStack, Show } from '@chakra-ui/react'
 import NavBar from './components/NavBar'
 import MovieGrid from './components/MovieGrid'
 import GenreList from './components/GenreList'
@@ -13,6 +13,8 @@ interface Genre {
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
   const [selectedType, setSelectedType] = useState('')
+  const [searchInput, setSearchInput] = useState('')
+
 
   return (
     <Grid templateAreas={{
@@ -20,7 +22,7 @@ function App() {
       lg: `"nav nav" "aside main"`
     }} >
       <GridItem area="nav">
-        <NavBar />
+        <NavBar setKeyword={(keyword) => setSearchInput(keyword)} />
       </GridItem>
       <Show above='lg'>
         <GridItem area="aside" paddingX={10}>
@@ -28,10 +30,10 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <HStack paddingLeft={4}>
+        <Flex paddingLeft={4}>
           <MovieTypeSelector onSelectType={(type) => setSelectedType(type)} selectedType={selectedType} />
-        </HStack>
-        <MovieGrid selecedGenre={selectedGenre} selectedType={selectedType} />
+        </Flex>
+        <MovieGrid selecedGenre={selectedGenre} selectedType={selectedType} searchInput={searchInput} />
       </GridItem>
 
 
