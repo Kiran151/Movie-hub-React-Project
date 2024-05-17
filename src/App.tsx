@@ -19,7 +19,7 @@ function App() {
   return (
     <Grid templateAreas={{
       base: `"nav" "main"`,
-      lg: `"nav nav" "aside main"`
+      lg: `"nav nav" "main"`
     }} >
       <GridItem area="nav">
         <NavBar setKeyword={(keyword) => setSearchInput(keyword)} />

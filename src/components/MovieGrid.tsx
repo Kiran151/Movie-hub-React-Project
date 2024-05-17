@@ -109,7 +109,7 @@ const MovieGrid = ({ selecedGenre, selectedType, searchInput }: Props) => {
     return (
         <>
             {error && <Text>{error}</Text>}
-            <SimpleGrid columns={{ sm: 2, md: 3, lg: 4, xl: 5 }} spacing={4} padding={5}>
+            <SimpleGrid columns={{base:2, sm: 2, md: 3, lg: 4, xl: 5 }} spacing={4} padding={5}>
                 {isLoading && skeletons.map((i) => <MovieCardSkeleton key={i} />)}
                 {isLoading == false && movies.map(movie => <MovieCard key={movie.id} movie={movie} />)}
             </SimpleGrid>
