@@ -12,6 +12,8 @@ interface Movie {
     id: number;
     original_title: string;
     poster_path: string;
+    vote_average: number;
+    release_date: string;
 }
 
 interface FetchMoviesResponse {
@@ -41,9 +43,6 @@ const MovieGrid = ({ selecedGenre, selectedType, searchInput }: Props) => {
     function handlePageClick(data: any) {
         setPage(data.selected + 1)
     }
-
-
-
 
 
     useEffect(() => {

@@ -12,7 +12,7 @@ interface Genre {
 }
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
-  const [selectedType, setSelectedType] = useState('')
+  const [selectedType, setSelectedType] = useState('Now Playing')
   const [searchInput, setSearchInput] = useState('')
 
 
@@ -24,14 +24,16 @@ function App() {
       <GridItem area="nav">
         <NavBar setKeyword={(keyword) => setSearchInput(keyword)} />
       </GridItem>
-      <Show above='lg'>
+      {/* <Show below='lg'>
         <GridItem area="aside" paddingX={10}>
           <GenreList selectedGenre={selectedGenre} onSelectGenre={(genre) => setSelectedGenre(genre)} />
         </GridItem>
-      </Show>
+      </Show> */}
       <GridItem area="main">
         <Flex paddingLeft={4}>
           <MovieTypeSelector onSelectType={(type) => setSelectedType(type)} selectedType={selectedType} />
+          <GenreList selectedGenre={selectedGenre} onSelectGenre={(genre) => setSelectedGenre(genre)} />
+
         </Flex>
         <MovieGrid selecedGenre={selectedGenre} selectedType={selectedType} searchInput={searchInput} />
       </GridItem>

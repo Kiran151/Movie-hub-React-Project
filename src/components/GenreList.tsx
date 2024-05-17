@@ -1,6 +1,7 @@
 import React from 'react'
 import useGenre from './hooks/useGenre'
-import { Button, HStack, List, ListItem, SkeletonCircle, Spinner, Text } from '@chakra-ui/react'
+import { FaCaretDown } from 'react-icons/fa';
+import { Button, HStack, List, ListItem, Menu, MenuButton, MenuItem, MenuList, SkeletonCircle, Spinner, Text } from '@chakra-ui/react'
 interface Genre {
     id: number;
     name: string;
@@ -18,15 +19,15 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
 
 
     return (
-        <List>
-            {genres.map(genre => <ListItem key={genre.id} paddingY={3}>
-                <HStack>
-                    <SkeletonCircle borderRadius={0} />
-                    <Button onClick={() => onSelectGenre(genre)
-                    } fontSize="lg" variant='ghost' fontWeight={genre.id == selectedGenre?.id ? 'bold' : 'normal'}>{genre.name}</Button>
-                </HStack>
-            </ListItem>)}
-        </List>
+        <Menu>
+            <MenuButton marginLeft={2} as={Button} rightIcon={<FaCaretDown />}>{selectedGenre ?selectedGenre.name:'Genre'}</MenuButton>
+            <MenuList>
+                {genres.map(genre => <MenuItem onClick={() => onSelectGenre(genre)
+                } key={genre.id} paddingY={3}>
+                    {genre.name}
+                </MenuItem>)}
+            </MenuList>
+        </Menu>
     )
 }
 
